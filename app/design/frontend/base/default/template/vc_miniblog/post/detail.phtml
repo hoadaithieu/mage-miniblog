@@ -1,0 +1,39 @@
+
+<?php
+    $_post = $this->getItem();
+    $_helper = $this->helper('vc_miniblog');
+?>
+<?php if(!$_post || !$_post->getId()): ?>
+<p class="note-msg"><?php echo $this->__('There are no posts matching the selection.') ?></p>
+<?php else: ?>
+<div class="miniblog-posts">
+   
+    <ol class="posts-detail" id="posts-detail">
+        <li class="item">
+			<div class="post-title">
+				<h2><?php echo $_post->getTitle();?></h2>
+				<h3><?php echo $this->helper('vc_miniblog')->convertDate($_post->getCreatedAt());?></h3>
+			</div>
+            
+			<div class="post-content">
+			<?php echo $_post->getContent();?>
+			</div>
+			
+			<div class="post-tags">
+				Tags: <?php echo implode(', ',$this->helper('vc_miniblog')->parseTags($_post->getTags()));?>
+			</div>
+			
+			<div class="post-poster">
+				Posted in <?php echo implode(', ',$this->helper('vc_miniblog')->parseCategoryByPostId($_post->getId()));?>
+				  by <?php echo $_post->getPoster();?>
+			</div>
+        </li>
+		<?php echo $this->getChildHtml('comment-list');?>
+		<?php if (Mage::getStoreConfig('vc_miniblog/comment/enable')) :?>
+			<?php if ($this->checkRequiredLogin()) :?>
+				<?php echo $this->getChildHtml('comment-form');?>
+			<?php endif;?>
+		<?php endif;?>
+    </ol>
+</div>
+<?php endif; ?>

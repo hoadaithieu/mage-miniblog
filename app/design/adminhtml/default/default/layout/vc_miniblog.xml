@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<layout>
+    <vc_miniblog_adminhtml_post_index>
+		<!--update handle="update_vc_miniblog_header" /-->
+        <update handle="editor" />
+        <reference name="content">
+            <block type="vc_miniblog/adminhtml_post" name="post" >
+                <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>		
+			</block>
+        </reference>
+    </vc_miniblog_adminhtml_post_index>
+	
+	<vc_miniblog_adminhtml_post_edit>
+		<update handle="editor" />
+		<!--update handle="update_vc_miniblog_header" />
+		<update handle="update_vc_miniblog_before_end" /-->
+	</vc_miniblog_adminhtml_post_edit>
+
+	<vc_miniblog_adminhtml_post_new>
+		<update handle="editor" />
+		<!--update handle="update_vc_miniblog_header" />
+		<update handle="update_vc_miniblog_before_end" /-->
+	</vc_miniblog_adminhtml_post_new>
+	
+    <vc_miniblog_adminhtml_category_index>
+		<!--update handle="update_vc_miniblog_header" /-->
+        <update handle="editor" />
+        <reference name="content">
+            <block type="vc_miniblog/adminhtml_category" name="category" />
+        </reference>
+    </vc_miniblog_adminhtml_category_index>
+	
+	<vc_miniblog_adminhtml_category_edit>
+		<update handle="editor" />
+		<!--update handle="update_vc_miniblog_header" />
+		<update handle="update_vc_miniblog_before_end" /-->
+	</vc_miniblog_adminhtml_category_edit>
+
+	<vc_miniblog_adminhtml_category_new>
+		<update handle="editor" />
+		<!--update handle="update_vc_miniblog_header" />
+		<update handle="update_vc_miniblog_before_end" /-->
+	</vc_miniblog_adminhtml_category_new>
+	
+	
+    <vc_miniblog_adminhtml_comment_index>
+		<!--update handle="update_vc_miniblog_header" /-->
+        <update handle="editor" />
+        <reference name="content">
+            <block type="vc_miniblog/adminhtml_comment" name="comment" />
+        </reference>
+    </vc_miniblog_adminhtml_comment_index>
+	
+	<vc_miniblog_adminhtml_comment_edit>
+		<update handle="editor" />
+		<!--update handle="update_vc_miniblog_header" />
+		<update handle="update_vc_miniblog_before_end" /-->
+	</vc_miniblog_adminhtml_comment_edit>
+
+	<vc_miniblog_adminhtml_comment_new>
+		<update handle="editor" />
+		<!--update handle="update_vc_miniblog_header" />
+		<update handle="update_vc_miniblog_before_end" /-->
+	</vc_miniblog_adminhtml_comment_new>		
+</layout>

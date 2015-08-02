@@ -1,0 +1,71 @@
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+    $_postCollection=$this->getLoadedPostCollection();
+    $_helper = $this->helper('vc_miniblog');
+?>
+<?php if(!$_postCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no posts matching the selection.') ?></p>
+<?php else: ?>
+<div class="miniblog-posts">
+    <?php echo $this->getToolbarHtml() ?>
+    <?php $_iterator = 0; ?>
+    <ol class="posts-<?php echo $this->getMode();?>" id="posts-<?php echo $this->getMode();?>">
+    <?php foreach ($_postCollection as $_post): ?>
+        <li class="item<?php if( ++$_iterator == sizeof($_postCollection) ): ?> last<?php endif; ?>">
+			<div class="post-title">
+				<h2><a href="<?php echo $this->helper('vc_miniblog')->getPostDetailUrl($_post->getIdentifier());?>"><?php echo $_post->getTitle();?></a></h2>
+				<h3><?php echo $this->helper('vc_miniblog')->convertDate($_post->getCreatedAt());?></h3>
+			</div>
+            
+			<div class="post-content">
+			<?php 
+			if (Mage::getStoreConfig('vc_miniblog/blog/use_short_content_field')) :
+				echo $_post->getShortContent();
+			else :
+				if (Mage::getStoreConfig('vc_miniblog/blog/character_count')) :
+					echo $this->helper('core/string')->truncate($_post->getContent(), Mage::getStoreConfig('vc_miniblog/blog/character_count'), '.').  ' <a href="'.$this->helper('vc_miniblog')->getPostDetailUrl($_post->getIdentifier()).'"> &raquo; '.$this->__('Read more').'.</a>';
+				else :
+					echo $_post->getContent();
+				endif;
+				
+			endif;
+			?>
+			</div>
+			<?php
+			$tags = $_post->getTags();
+			if (strlen(trim($tags)) > 0) :
+			?>
+			<div class="post-tags">
+				Tags: <?php echo implode(', ',$_helper->parseTags($tags));?>
+			</div>
+			<?php
+			endif;
+			?>
+			<div class="post-poster">
+				<?php
+				$numComment = $_post->getNumComment();
+				if ($numComment > 0) :
+					echo $numComment.' Comment'.($numComment > 1? 's': '');
+				else:
+					echo $this->__('No Comment');
+				endif;
+				?>
+				 / Posted by <?php echo $_post->getPoster();?>
+			</div>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('posts-<?php echo $this->getMode();?>', 'none-recursive')</script>
+
+   
+    <div class="toolbar-bottom">
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
+</div>
+<?php endif; ?>

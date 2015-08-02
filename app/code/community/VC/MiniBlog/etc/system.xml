@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+        <vc_miniblog translate="label" module="vc_miniblog">
+            <label>MiniBlog Settings</label>
+			<tab>vc_all</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>400</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+        	<groups>
+        		<blog translate="label">
+                    <label>Blog Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+                    <fields>
+						<enable translate="label">
+							<label>Enable</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Enable this module.]]></comment>
+						</enable>
+
+						<router translate="label">
+							<label>Route To Blog</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[NOT contain any slashe.]]></comment>
+						</router>	
+	
+						<title translate="label">
+							<label>Blog Title</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</title>	
+
+						<meta_keyword translate="label">
+							<label>Meta Key</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</meta_keyword>	
+						<meta_description translate="label">
+							<label>Meta Description</label>
+                            <frontend_type>textarea</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</meta_description>	
+						
+						<page_layout translate="label">
+							<label>Page Layout</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>vc_miniblog/system_config_layout</source_model>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</page_layout>
+						
+						<date_format translate="label">
+							<label>Date Format</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>vc_miniblog/system_config_dateformat</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</date_format>
+						
+						<breakcrumbs translate="label">
+							<label>Show Breakcrumbs</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>35</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Enable this module.]]></comment>
+						</breakcrumbs>
+						
+						<character_count translate="label">
+							<label>Summary Character Count</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Number of characters in a post to be displayed before it is truncated and the Read More link is added. 0 for unlimited.]]></comment>
+						</character_count>	
+							
+						<use_short_content_field translate="label">
+							<label>Use Short Content Field</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>35</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[If enabled, additional "Short Content Field" is taken instead of truncated main post.]]></comment>
+						</use_short_content_field>
+		
+						<!--parse_tags_in_post_content translate="label">
+							<label>Parse CMS Tags in Post Contents</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</parse_tags_in_post_content-->
+							
+						<post_per_page translate="label">
+							<label>Posts per Page</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>45</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Comma-separated]]></comment>
+						</post_per_page>	
+						
+						<allow_show_all translate="label">
+							<label>Allow show all</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</allow_show_all>
+						
+							
+						<default_post_sort translate="label">
+							<label>Default Posts Sorting</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>vc_miniblog/system_config_postsort</source_model>
+							<sort_order>55</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</default_post_sort>
+						
+						<list_mode translate="label">
+							<label>List mode</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>vc_miniblog/system_config_listmode</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</list_mode>
+						
+							
+						<!--show_bookmarks_in_list translate="label">
+							<label>Show Bookmarks in Lists</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>65</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</show_bookmarks_in_list>
+						
+						<show_bookmarks_in_post translate="label">
+							<label>Show Bookmarks in Posts</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</show_bookmarks_in_post-->
+	
+						
+																								
+                    </fields>
+	            </blog>	
+				
+				<menu_link translate="label">
+                    <label>Menu and Link Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+                    <fields>
+						<enable_left_menu translate="label">
+							<label>Enable Left Menu</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>vc_miniblog/system_config_enablemenu</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</enable_left_menu>
+						
+						<enable_right_menu translate="label">
+							<label>Enable Right Menu</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>vc_miniblog/system_config_enablemenu</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</enable_right_menu>
+
+						<enable_footer_link translate="label">
+							<label>Enable Footer Link</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</enable_footer_link>
+
+						<enable_top_link translate="label">
+							<label>Enable Top Link</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</enable_top_link>
+						
+						
+						<recent_post translate="label">
+							<label>Recent Post</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[The number of recent post to be displayed in the menu. 0 to disable.]]></comment>
+						</recent_post>	
+					
+						<enable_category_menu translate="label">
+							<label>Enable Categories Menu</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</enable_category_menu>
+						
+						<tags_to_display translate="label">
+							<label>Tags to Display</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[The number of tags to display in tag cloud. 0 disables tag cloud.]]></comment>
+						</tags_to_display>	
+
+					</fields>
+								
+				</menu_link>				
+				
+				<comment translate="label">
+                    <label>Comment Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+                    <fields>
+						<enable translate="label">
+							<label>Enable Comment</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</enable>
+						
+						<require_login_to_comment translate="label">
+							<label>Login Required to Comment</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</require_login_to_comment>
+
+						<auto_approve_comment translate="label">
+							<label>Auto Approve Comments</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</auto_approve_comment>
+
+					</fields>
+								
+				</comment>
+			</groups>
+		</vc_miniblog>
+	</sections>			
+</config>

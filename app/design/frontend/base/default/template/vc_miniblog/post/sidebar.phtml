@@ -1,0 +1,96 @@
+<?php
+if ($this->allowShow() && Mage::getStoreConfig('vc_miniblog/menu_link/recent_post')) :
+    $_postCollection=$this->getLoadedPostCollection();
+    $_helper = $this->helper('vc_miniblog');
+?>
+
+
+<div class="block block-list block-miniblog">
+    <div class="block-title">
+        <strong><span><?php echo $this->__(Mage::getStoreConfig('vc_miniblog/blog/title')) ?></span></strong>
+    </div>
+    <div class="block-content">
+<?php if($_postCollection->count() > 0): ?>
+        <ol id="compare-items">
+        <?php foreach($_postCollection as $_post): ?>
+            <li class="item">
+
+                <a href="<?php echo $this->helper('vc_miniblog')->getPostDetailUrl($_post->getIdentifier());?>"><?php echo $_post->getTitle();?></a>
+            </li>
+        <?php endforeach; ?>
+        </ol>
+        
+    <?php else: ?>
+        <p class="empty"><?php echo $this->__('You have no items.') ?></p>
+    <?php endif; ?>
+    </div>
+</div>
+
+
+<!--BEGIN CAT-->
+
+<?php
+$_catCollection=$this->getLoadedCatCollection();
+if (Mage::getStoreConfig('vc_miniblog/menu_link/enable_category_menu')) :
+?>
+	<div class="block block-list block-miniblog block-miniblog-category">
+		<div class="block-title">
+			<strong><span><?php echo $this->__('Categories') ?></span></strong>
+		</div>
+		<div class="block-content">
+	<?php if($_catCollection->count() > 0): ?>
+			<ol id="miniblog-category-items">
+				<li class="item">
+				<?php 
+				foreach($_catCollection as $_cat): 
+				?>
+					 <a href="<?php echo $this->helper('vc_miniblog')->getCatDetailUrl($_cat->getIdentifier());?>"><?php echo $_cat->getTitle();?></a>
+				<?php 
+				endforeach; ?>
+				</li>
+			</ol>
+		<?php else: ?>
+			<p class="empty"><?php echo $this->__('You have no items.') ?></p>
+		<?php endif; ?>
+		</div>
+	</div>
+<?php
+endif;
+?>
+<!--END CAT-->
+
+<!--BEGIN TAGS-->
+<?php
+$_tags = $this->getLoadedTags();
+if (Mage::getStoreConfig('vc_miniblog/menu_link/tags_to_display')) :
+?>
+	<div class="block block-list block-miniblog block-miniblog-tags">
+		<div class="block-title">
+			<strong><span><?php echo $this->__('Tags') ?></span></strong>
+		</div>
+		<div class="block-content">
+	<?php if(strlen($_tags) > 0): ?>
+			<ol id="miniblog-tags-items">
+				<li class="item">
+				<?php 
+				echo implode(' ',$this->helper('vc_miniblog')->parseTags($_tags, Mage::getStoreConfig('vc_miniblog/menu_link/tags_to_display')));
+				?>
+				</li>
+			</ol>
+			
+		<?php else: ?>
+			<p class="empty"><?php echo $this->__('You have no items.') ?></p>
+		<?php endif; ?>
+		</div>
+	</div>
+<?php
+endif;
+?>
+<!--END TAGS-->
+
+<?php
+endif;
+?>
+
+
+	

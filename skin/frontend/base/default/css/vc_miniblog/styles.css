@@ -1,0 +1,87 @@
+.miniblog-posts{
+}
+
+.miniblog-posts .posts-detail li
+.miniblog-posts .posts-list li,
+.miniblog-posts .posts-grid li{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.miniblog-posts .posts-grid li{
+	width:48%;
+	display: inline-block;
+	vertical-align: top;
+}
+.miniblog-posts .posts-grid li:nth-child(even){
+	margin-left:3%;
+}
+
+.miniblog-posts li .comment-title,
+.miniblog-posts li .post-title,
+.miniblog-posts li .post-content,
+.miniblog-posts li .post-tags,
+.miniblog-posts li .post-poster{
+	margin-top:10px;
+}
+
+.miniblog-posts li .comment-title,
+.miniblog-posts li .post-title{
+	border-bottom:1px solid #DDDDDD;
+}
+
+.miniblog-posts li .post-title h2{
+	text-transform:capitalize;
+	/*line-height: 4px;*/
+
+}
+
+.miniblog-posts li .post-title h3{
+	font-size:12px;
+}
+
+.miniblog-posts li .post-content{
+}
+
+.miniblog-posts li .post-tags{
+}
+
+.miniblog-posts li .post-post-poster{
+}
+
+.miniblog-posts .comment-list{
+	margin-top: 30px;
+}
+
+.comment-list .comment-item{
+	margin: 10px;
+	padding: 10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
+}
+
+.comment-list .comment-item:nth-child(even){
+	background:#fcf8f8;
+}
+
+.comment-item .comment-content{
+	margin: 10px 0px;
+	display: block;
+}
+
+.comment-item .comment-author{
+	display: block;
+	font-size: 12px;
+	color:#8e8c8c;
+}
+
+.miniblog-posts .comment-form{
+	margin-top: 30px;
+}
+
+.miniblog-posts .comment-form .input-text,
+.miniblog-posts .comment-form textarea
+{
+	width:100% !important;
+}

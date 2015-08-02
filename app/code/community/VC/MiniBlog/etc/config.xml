@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <VC_MiniBlog>
+            <version>1.0.0</version>
+        </VC_MiniBlog>
+    </modules>
+    <frontend>
+        <routers>
+            <vc_miniblog>
+                <use>standard</use>
+                <args>
+                    <module>VC_MiniBlog</module>
+                    <frontName>vc_miniblog</frontName>
+                </args>
+            </vc_miniblog>
+        </routers>
+        <layout>
+            <updates>
+                <vc_miniblog>
+                    <file>vc_miniblog.xml</file>
+                </vc_miniblog>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<vc_miniblog>
+				<use>admin</use>
+				<args>
+					<module>VC_MiniBlog</module>
+					<frontName>vc_miniblog</frontName>
+				</args>
+			</vc_miniblog>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+
+			<vc_miniblog translate="title" module="vc_miniblog">
+				<title>MiniBlog</title>
+				<sort_order>80</sort_order>
+				<children>
+					<vc_miniblog_post_add module="vc_miniblog">
+						<title>Add Post</title>
+						<sort_order>1</sort_order>
+						<action>vc_miniblog/adminhtml_post/new</action>
+					</vc_miniblog_post_add>
+				
+					<vc_miniblog_post_index module="vc_miniblog">
+						<title>Posts</title>
+						<sort_order>5</sort_order>
+						<action>vc_miniblog/adminhtml_post/index</action>
+					</vc_miniblog_post_index>
+
+					<vc_miniblog_comment_index module="vc_miniblog">
+						<title>Comments</title>
+						<sort_order>10</sort_order>
+						<action>vc_miniblog/adminhtml_comment/index</action>
+					</vc_miniblog_comment_index>
+					
+					<vc_miniblog_category_index module="vc_miniblog">
+						<title>Categories</title>
+						<sort_order>15</sort_order>
+						<action>vc_miniblog/adminhtml_category/index</action>
+					</vc_miniblog_category_index>		
+													
+					<setting translate="title" module="vc_miniblog">
+						<title>Settings</title>
+						<sort_order>20</sort_order>
+						<action>adminhtml/system_config/edit/section/vc_miniblog</action>
+					</setting>
+					
+				</children>					
+			</vc_miniblog>	
+
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<vc_all>
+							<children>
+					
+								<vc_miniblog>
+									<title>VC MiniBlog</title>
+									<sort_order>70</sort_order>						
+									<children>
+										<vc_miniblog_post_add translate="title" module="vc_miniblog">
+											<title>Add Post</title>
+											<sort_order>400</sort_order>
+										</vc_miniblog_post_add>
+									
+										<vc_miniblog_post_index translate="title" module="vc_miniblog">
+											<title>Posts</title>
+											<sort_order>405</sort_order>
+										</vc_miniblog_post_index>
+										
+										<vc_miniblog_comment_index translate="title" module="vc_miniblog">
+											<title>Comments</title>
+											<sort_order>410</sort_order>
+										</vc_miniblog_comment_index>
+										
+										<vc_miniblog_category_index translate="title" module="vc_miniblog">
+											<title>Categories</title>
+											<sort_order>415</sort_order>
+										</vc_miniblog_category_index>
+										
+										<setting translate="title" module="vc_miniblog">
+											<title>Settings</title>
+											<sort_order>420</sort_order>
+										</setting>																															
+		
+									</children>
+								</vc_miniblog>
+							</children>
+						</vc_all>
+						<system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <vc_miniblog>
+                                            <title>VC MiniBlog Section</title>
+                                        </vc_miniblog>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+												
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<vc_miniblog>
+					<file>vc_miniblog.xml</file>
+				</vc_miniblog>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <vc_miniblog>
+                <class>VC_MiniBlog_Model</class>
+                <resourceModel>vc_miniblog_resource</resourceModel>
+            </vc_miniblog>
+            <vc_miniblog_resource>
+                <class>VC_MiniBlog_Model_Resource</class>
+                <deprecatedNode>vc_miniblog_resource_eav_mysql4</deprecatedNode>
+                <entities>
+                    <post>
+                        <table>vc_miniblog_post</table>
+                    </post>
+                    <post_category>
+                        <table>vc_miniblog_post_category</table>
+                    </post_category>
+                    <post_store>
+                        <table>vc_miniblog_post_store</table>
+                    </post_store>
+                    <comment>
+                        <table>vc_miniblog_comment</table>
+                    </comment>
+                    <category>
+                        <table>vc_miniblog_category</table>
+                    </category>	
+                    <category_store>
+                        <table>vc_miniblog_category_store</table>
+                    </category_store>										
+				</entities>
+			</vc_miniblog_resource>
+        </models>	
+		
+		<resources>
+			<vc_miniblog_setup>
+				<setup>
+					<module>VC_MiniBlog</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</vc_miniblog_setup>
+			<vc_miniblog_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</vc_miniblog_write>
+			<vc_miniblog_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</vc_miniblog_read>
+		</resources>
+				
+        <blocks>
+            <vc_miniblog>
+                <class>VC_MiniBlog_Block</class>
+            </vc_miniblog>
+        </blocks>
+	
+        <helpers>
+            <vc_miniblog>
+                <class>VC_MiniBlog_Helper</class>
+            </vc_miniblog>
+        </helpers>
+		
+ 		<events>
+            <controller_front_init_routers>
+                <observers>
+                    <vc_miniblog_controller_front_init_routers>
+                        <type>singleton</type>
+                        <class>VC_MiniBlog_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </vc_miniblog_controller_front_init_routers>
+                </observers>
+            </controller_front_init_routers>
+		</events>			
+    </global>
+	
+	<default>
+		<vc_miniblog>
+			<blog>
+				<enable>0</enable>
+				<editor_enable>0</editor_enable>
+				<title>Recent Posts</title>
+				<page_layout>two_columns_right</page_layout>
+				<date_format>full</date_format>
+				<default_post_sort>created_at</default_post_sort>
+			</blog>
+			<menu_link>
+				<recent_post>0</recent_post>
+				<enable_category_menu>0</enable_category_menu>
+				<tags_to_display>0</tags_to_display>
+			</menu_link>			
+		</vc_miniblog>
+	</default>
+	
+</config>

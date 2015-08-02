@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+        <reference name="top.links">
+			<block type="vc_miniblog/post_links" name="post_top_links">
+				<action method="addTopLink" translate="label title" module="vc_miniblog" ifconfig="vc_miniblog/menu_link/enable_top_link">
+				</action>
+			</block>	
+        </reference>				
+	
+        <reference name="left">
+            <block type="vc_miniblog/post_sidebar" name="post_all_left_sidebar" template="vc_miniblog/post/sidebar.phtml">
+				<action method="setConfig" translate="label title" module="vc_miniblog">
+					<key>vc_miniblog/menu_link/enable_left_menu</key>
+					<value>1</value>
+				</action>			
+            </block>
+		</reference>
+        <reference name="right">
+            <block type="vc_miniblog/post_sidebar" name="post_all_right_sidebar" template="vc_miniblog/post/sidebar.phtml">
+				<action method="setConfig" translate="label title" module="vc_miniblog">
+					<key>vc_miniblog/menu_link/enable_right_menu</key>
+					<value>1</value>
+				</action>
+            </block>
+		</reference>	
+		
+        <reference name="footer_links">
+			<block type="vc_miniblog/post_links" name="post_foot_links">
+				<action method="addFooterLink" translate="label title" module="vc_miniblog" ifconfig="vc_miniblog/menu_link/enable_footer_link">
+				</action>
+			</block>	
+        </reference>				
+	</default>
+	
+	<vc_miniblog>
+		<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>css/vc_miniblog/styles.css</name><params/></action>
+		</reference>
+		
+		
+			
+        <reference name="root">
+            <!--action method="setTemplate"><template>page/2columns-right.phtml</template></action-->
+        </reference>
+		
+        <reference name="left">
+            <block type="vc_miniblog/post_sidebar" name="post_left_sidebar" template="vc_miniblog/post/sidebar.phtml">
+				<action method="setConfig" translate="label title" module="vc_miniblog">
+					<key>vc_miniblog/menu_link/enable_left_menu</key>
+					<value>2</value>
+				</action>
+            </block>
+		</reference>
+        <reference name="right">
+            <block type="vc_miniblog/post_sidebar" name="post_right_sidebar" template="vc_miniblog/post/sidebar.phtml">
+				<action method="setConfig" translate="label title" module="vc_miniblog">
+					<key>vc_miniblog/menu_link/enable_right_menu</key>
+					<value>2</value>
+				</action>
+            </block>
+		</reference>			
+		
+	</vc_miniblog>
+	
+	<vc_miniblog_index_index>
+		<update handle="vc_miniblog" />
+        <reference name="content">
+            <block type="vc_miniblog/post_list" name="post_list" template="vc_miniblog/post/list.phtml">
+				<block type="vc_miniblog/post_list_toolbar" name="post_list_toolbar" template="vc_miniblog/post/list/toolbar.phtml">
+					<block type="page/html_pager" name="post_list_toolbar_pager"/>
+					<action method="setCurrentMode"><name>list</name></action>
+				</block>
+				<action method="setToolbarBlockName"><name>post_list_toolbar</name></action>
+				
+            </block>
+        </reference>
+	</vc_miniblog_index_index>
+	
+	<vc_miniblog_index_postdetail>
+		<update handle="vc_miniblog" />
+        <reference name="content">
+            <block type="vc_miniblog/post" name="post" template="vc_miniblog/post/detail.phtml">
+ 				<block type="vc_miniblog/comment" name="comment-list" as="comment-list" template="vc_miniblog/comment/list.phtml"/>
+				<block type="vc_miniblog/comment" name="comment-form" as="comment-form" template="vc_miniblog/comment/form.phtml"/>
+            </block>
+        </reference>
+	</vc_miniblog_index_postdetail>
+	
+</layout>

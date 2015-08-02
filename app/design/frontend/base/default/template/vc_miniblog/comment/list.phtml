@@ -1,0 +1,26 @@
+<?php
+$comments = $this->getComments();
+if ($comments != null && $comments->getSize() > 0) :
+?>
+<li class="item comment-list">
+	<div class="comment-title">
+		<h2><?php echo $comments->getSize();?> COMMENT<?php echo $comments->getSize() > 1 ? 'S': '';?></h2>
+	</div>
+	<?php
+	foreach ($comments as $item) :
+	?>
+		<div class="comment-item">
+			<span class="comment-content">
+			<?php echo $item->getContent();?>
+			</span>
+			<span class="comment-author">
+			Created at <?php echo $item->getCreatedAt();?> by <b><?php echo $item->getUser();?></b>
+			</span>
+		</div>
+	<?php
+	endforeach;
+	?>
+</li>
+<?php
+endif;
+?>
